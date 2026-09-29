@@ -1,22 +1,2 @@
-import type {Metadata} from 'next';
-import Link from 'next/link';
-import {V2Header,V2Footer} from '../chrome';
-
-export const metadata:Metadata={title:'Исследования — вариант 2',description:'Исследовательская рамка EMY: происхождение данных, идентичность, доказательства и ответственность.'};
-
-export default function Research(){return <><V2Header/><main>
-  <section className="v2-subhero v2-subhero-research"><div className="wrap"><div className="eyebrow">01 / Научно-исследовательское направление</div><h1>Основания доверия к цифровым данным</h1><p className="lead">Цифровая запись сама по себе не доказывает, что описанное в ней событие произошло и было правомерным. Исследовательская линия EMY рассматривает происхождение данных, связь с реальным объектом и ответственность за изменение записи.</p></div></section>
-  <section className="section"><div className="wrap"><div className="v2-section-heading"><span className="eyebrow">Исследовательские вопросы</span><h2>Что должна позволять проверка?</h2></div><div className="v2-research-grid">
-    <article><span>01</span><h3>Идентичность и объект</h3><p>Как связать запись с конкретным объектом, субъектом, документом или обязательством, когда данные проходят через несколько систем?</p></article>
-    <article><span>02</span><h3>Событие и основание</h3><p>Как восстановить, кто совершил действие, когда и где оно произошло, на каком основании и что изменилось?</p></article>
-    <article><span>03</span><h3>Происхождение и доказательства</h3><p>Что подтверждает первичный факт и как отличить сохранность записи от достоверности внесённых сведений?</p></article>
-    <article><span>04</span><h3>Правомерность и AI</h3><p>Как сделать видимыми цель использования данных, разрешённый доступ и происхождение контекста для аналитики и AI?</p></article>
-  </div></div></section>
-  <section className="section tint"><div className="wrap v2-research-model"><div><div className="eyebrow">Концептуальная модель</div><h2>От реального мира к обоснованному решению</h2><p>В задании на White Paper эта логика задана последовательностью: реальный мир → идентичность → событие → доказательство → доверенные данные → AI → решение и действие.</p><p>Здесь она показана как исследовательская рамка. Наличие этапов в модели не означает, что все они уже реализованы в продукте.</p></div><ol><li>Определить объект и его идентичность</li><li>Зафиксировать значимое событие</li><li>Связать событие с основанием и подтверждением</li><li>Восстановить путь данных до решения</li></ol></div></section>
-  <section className="section"><div className="wrap"><div className="v2-section-heading"><span className="eyebrow">Материалы проекта</span><h2>Темы исследований и публикаций</h2><p>Раздел основан на проектных текстах; он не заявляет о завершённой независимой научной экспертизе или доказанном эффекте внедрения.</p></div><div className="v2-source-list">
-    <div><strong>Архитектура доверия для данных нового поколения</strong><p>Этичные метаданные, цифровой след, правовой и управленческий контекст данных.</p></div>
-    <div><strong>Доверенная токенизация</strong><p>Проверяемая связь цифровой записи с объектом, субъектом, основанием и историей действий; граница между токеном данных и обращаемым криптоактивом.</p></div>
-    <div><strong>White Paper в подготовке</strong><p>План архитектурного, технологического и отраслевого описания. EMY, отдельная технология UTT и концептуальный правовой фундамент должны быть разграничены.</p></div>
-  </div></div></section>
-  <section className="v2-next"><div className="wrap"><div><span className="eyebrow">Следующий раздел</span><h2>Как принципы переходят в продуктовую задачу</h2></div><Link className="btn" href="/v2/products">К продуктам</Link></div></section>
-</main><V2Footer/></>}
+import {redirect} from 'next/navigation';
+export default function Page(){redirect('/research');}
