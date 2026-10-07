@@ -1,5 +1,5 @@
 import type {Metadata} from 'next';
-import Link from 'next/link';
+import Link from '@/components/site-link';
 import {V2Header,V2Footer} from '../v2/chrome';
 
 export const metadata:Metadata={title:'Продуктовый пилот — Бузачи Нефть',description:'Пилот EMY для Бузачи Нефть: паспорт актива, события, мобильная инвентаризация и связь с 1С / КУФИБ.'};

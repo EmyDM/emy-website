@@ -1,5 +1,5 @@
 import type {Metadata} from 'next';
-import Link from 'next/link';
+import Link from '@/components/site-link';
 import {V2Header,V2Footer} from './v2/chrome';
 
 export const metadata:Metadata={title:'EMY — проверяемая история объектов и событий',description:'EMY связывает активы, события и подтверждения поверх существующих систем. Исследования и пилотный сценарий Бузачи Нефть.'};

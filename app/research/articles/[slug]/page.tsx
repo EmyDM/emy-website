@@ -1,5 +1,5 @@
 import type {Metadata} from 'next';
-import Link from 'next/link';
+import Link from '@/components/site-link';
 import {notFound} from 'next/navigation';
 import {V2Header,V2Footer} from '../../../v2/chrome';
 import articles from '../data.json';

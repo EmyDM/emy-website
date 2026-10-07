@@ -1,5 +1,5 @@
 import type {Metadata} from 'next';
-import Link from 'next/link';
+import Link from '@/components/site-link';
 import {V2Header,V2Footer} from '../v2/chrome';
 
 export const metadata:Metadata={title:'Исследования Светланы Романенко',description:'Исследовательская рамка EMY: происхождение данных, идентичность, доказательства и ответственность.'};
