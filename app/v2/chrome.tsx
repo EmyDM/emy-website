@@ -13,4 +13,4 @@ export function V2Header(){
   </div>{open&&<nav className="v2-mobile" aria-label="Мобильная навигация">{links.map(([name,href])=><Link href={href} key={href} onClick={()=>setOpen(false)}>{name}</Link>)}</nav>}</header>
 }
 
-export function V2Footer(){return <footer className="v2-footer"><div className="wrap v2-footer-inner"><div><strong>EMY</strong><p>Исследовательская основа и прикладная реализация.</p></div><div><Link href="/research">Исследования</Link><Link href="/products">Продукт</Link><Link href="/contact">Контакты</Link></div></div></footer>}
+export function V2Footer(){return <footer className="v2-footer"><div className="wrap v2-footer-inner"><div><strong>EMY</strong><p>Исследовательская основа и прикладная реализация.</p></div><div><Link href="/research">Исследования</Link><Link href="/products">Продукт</Link><Link href="/author">Автор проекта</Link><Link href="/contact">Контакты</Link></div></div></footer>}
