@@ -1,0 +1,2 @@
+import Link from '@/components/site-link';
+export default function ResearchNav({current}:{current:string}){const links=[['Обзор','/research'],['Статьи','/research/publications'],['Главы книг','/research/books'],['Патенты','/research/patents']];return <nav className="research-nav" aria-label="Разделы исследований">{links.map(([label,href])=><Link href={href} key={href} aria-current={current===href?'page':undefined}>{label}</Link>)}</nav>}
