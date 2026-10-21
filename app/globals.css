@@ -70,3 +70,6 @@
 
 /* Brandbook: Baskerville and the explicit digital palette from pages 12–13. */
 h1,h2,h3{font-weight:600}strong,b{font-weight:700}svg text{font-family:'EMY Baskerville','Baskerville','Times New Roman',serif}html:lang(kk){font-family:'Times New Roman',serif}
+
+/* Photographs decorate existing content blocks; there is no photo catalogue. */
+.block-photo{grid-column:1/-1;width:100%;min-width:0;height:300px;margin:32px 0 0;overflow:hidden;border-radius:4px}.block-photo img{display:block;width:100%;height:100%;object-fit:cover}.v2-end>.block-photo{flex-basis:100%}.v2-end:has(>.block-photo){flex-wrap:wrap}.author-body .block-photo{height:320px;margin:30px 0}.contact-messengers~.block-photo{height:300px}.split>.block-photo{margin-top:0}.v2-bridge-grid>.block-photo{height:350px}.v2-subhero .block-photo{height:220px;margin-top:38px}.photo-author-hero{background:linear-gradient(90deg,color-mix(in srgb,#A6D6AA 18%,white),rgba(255,255,255,.88)),url('/images/visual-flowers.jpg') center/cover}@media(max-width:650px){.block-photo,.author-body .block-photo,.v2-bridge-grid>.block-photo{height:300px;margin-top:26px}.v2-subhero .block-photo{height:240px}.v2-end>.block-photo{width:100%;flex-basis:auto}.split>.block-photo{margin-top:0}}

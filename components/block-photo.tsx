@@ -1,0 +1,1 @@
+export default function BlockPhoto({name,position='center',portrait=false}:{name:string;position?:string;portrait?:boolean}){return <div className={'block-photo'+(portrait?' block-photo-portrait':'')} aria-hidden="true"><img src={'/images/visual-'+name+'.jpg'} width="1152" height="1536" loading="lazy" alt="" style={{objectPosition:position}}/></div>}
