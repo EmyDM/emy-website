@@ -1,0 +1,2 @@
+import type {MetadataRoute} from 'next';
+export default function sitemap():MetadataRoute.Sitemap{const paths=['','/about','/author','/contact','/platform','/products','/solutions/industrial-assets','/research','/research/publications','/research/books','/research/patents','/research/legislation','/research/articles/architecture','/research/articles/trusted-tokenization','/privacy'];return paths.map(path=>({url:'https://emy.dmitryromanenko69.chatgpt.site'+path}));}
