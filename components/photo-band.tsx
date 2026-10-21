@@ -1,0 +1,1 @@
+export default function PhotoBand({src,alt,position='center'}:{src:string;alt:string;position?:string}){return <figure className="photo-band"><img src={src} alt={alt} width="1152" height="1536" loading="lazy" style={{objectPosition:position}}/></figure>}
