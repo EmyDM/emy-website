@@ -5,7 +5,7 @@ import type {Metadata} from 'next';
 import Link from '@/components/site-link';
 import {V2Header,V2Footer} from '../v2/chrome';
 
-export const metadata:Metadata={title:'Исследования Светланы Романенко',description:'Исследовательская рамка EMY: происхождение данных, идентичность, доказательства и ответственность.'};
+export const metadata:Metadata={title:'Исследования Светланы Романенко',description:'Исследовательская рамка EMY: происхождение данных, идентичность, доказательства и ответственность.',alternates:{canonical:"/research",languages:{ru:"/research",en:"/en/research",kk:"/kk/research"}}};
 
 export default function Research(){return <><V2Header/><main>
   <section className="v2-subhero v2-subhero-research photo-research-hero"><div className="wrap"><div className="eyebrow">01 / Научно-исследовательское направление</div><h1>Основания доверия к цифровым данным</h1><p className="lead">Цифровая запись сама по себе не доказывает, что описанное в ней событие произошло и было правомерным. Исследовательская линия EMY рассматривает происхождение данных, связь с реальным объектом и ответственность за изменение записи.</p></div></section><PhotoBand src="/images/visual-butterfly.jpg" alt="Бабочка на жёлтых цветах" position="50% 30%"/>

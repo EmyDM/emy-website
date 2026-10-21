@@ -4,7 +4,7 @@ import Link from '@/components/site-link';
 import ResearchNav from '@/components/research-nav';
 import {V2Header,V2Footer} from '../../v2/chrome';
 import {legalSources,hubProfile,hubArticles} from './sources';
-export const metadata:Metadata={title:'EMY и цифровое законодательство Казахстана',description:'Цифровой кодекс РК, законы об ИИ, персональных данных, цифровых активах и авторском праве: официальные источники и исследовательский контекст EMY.',alternates:{canonical:'/research/legislation'}};
+export const metadata:Metadata={title:'EMY и цифровое законодательство Казахстана',description:'Цифровой кодекс РК, законы об ИИ, персональных данных, цифровых активах и авторском праве: официальные источники и исследовательский контекст EMY.',alternates:{canonical:"/research/legislation",languages:{ru:"/research/legislation",en:"/en/research/legislation",kk:"/kk/research/legislation"}}};
 export default function Page(){return <><V2Header/><main>
 <section className="v2-subhero"><div className="wrap"><div className="eyebrow">Исследования / Правовая среда</div><h1>EMY и цифровое законодательство Казахстана</h1><p className="lead">Как связаны цифровые объекты, происхождение данных, права человека и проверяемая история событий? Собрали официальные источники и вопросы, которые EMY исследует в их контексте.</p><p className="legal-date">Опубликовано <time dateTime="2026-10-21">21 октября 2026</time> · Ссылки и сведения проверены <time dateTime="2026-10-21">21 октября 2026</time></p></div></section>
 <div className="wrap"><ResearchNav current="/research/legislation"/></div>

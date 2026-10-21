@@ -4,7 +4,7 @@ import type {Metadata} from 'next';
 import Link from '@/components/site-link';
 import {V2Header,V2Footer} from '../v2/chrome';
 
-export const metadata:Metadata={title:'Продукт — история активов и событий',description:'EMY: паспорт актива, события, мобильная инвентаризация и интеграция с различными информационными и учётными системами.'};
+export const metadata:Metadata={title:'Продукт — история активов и событий',description:'EMY: паспорт актива, события, мобильная инвентаризация и интеграция с различными информационными и учётными системами.',alternates:{canonical:"/products",languages:{ru:"/products",en:"/en/products",kk:"/kk/products"}}};
 
 export default function Products(){return <><V2Header/><main>
   <section className="v2-subhero v2-subhero-product photo-product-hero"><div className="wrap"><div className="eyebrow">02 / Продуктовое направление</div><h1>От учётной карточки к проверяемому событию</h1><p className="lead">Продуктовая концепция EMY связывает актив в учётной системе с подтверждением на месте: кто его проверил, когда, где и на каком основании. В центре модели — события и их связь с объектом, источником и результатом.</p></div></section><PhotoBand src="/images/visual-moonlight.jpg" alt="Свет над пальмами" position="50% 25%"/>
