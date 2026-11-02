@@ -59,6 +59,13 @@ jobs:
           for (const [name, count] of Object.entries(classes)) {
             console.log('Token character class ' + name + ': ' + (count ? 'present' : 'absent'));
           }
+          // Only structural diagnostics: never log lengths, substrings, hashes or raw secrets.
+          const lines = token.split(/\r?\n/);
+          console.log('Token structure multiline: ' + (lines.length > 1 ? 'yes' : 'no'));
+          console.log('Token structure multiple nonempty lines: ' + (lines.filter(x => x.trim()).length > 1 ? 'yes' : 'no'));
+          console.log('Token structure contains spaces inside nonempty lines: ' + (lines.some(x => /\S \S/.test(x)) ? 'yes' : 'no'));
+          console.log('Token structure contains Bearer prefix: ' + (/^\s*Bearer\s+/i.test(token) ? 'yes' : 'no'));
+          console.log('Token structure resembles copied instructions: ' + (/\b(curl|authorization|create token|copy token|cloudflare api)\b/i.test(token) ? 'yes' : 'no'));
           const cleaned = token.trim();
           const innerWhitespace = /\s/u.test(cleaned);
           if (innerWhitespace || /[\x00-\x1f\x7f]/.test(cleaned)) {
