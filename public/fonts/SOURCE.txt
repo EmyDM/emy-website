@@ -1,0 +1,5 @@
+Monotype Baskerville. Full font files retrieved from the public font collection:
+https://github.com/parenthesislab/parenthesislab.github.io/tree/master/assets/fonts
+Original copyright notices retained in font metadata.
+Website use authorized by the project owner in conversation on 2026-10-21.
+Converted from TTF to WOFF without modifying glyph designs.
