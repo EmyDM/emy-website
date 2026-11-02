@@ -4,8 +4,9 @@ import hostingConfig from "./.openai/hosting.json";
 import { readExecutionProfile } from "./scripts/execution-profile.mjs";
 import { sites } from "./build/sites-vite-plugin";
 
-const SITE_CREATOR_PLACEHOLDER_DATABASE_ID =
-  "00000000-0000-4000-8000-000000000000";
+// The restored ChatGPT Sites D1 ID is not a real Cloudflare database.
+// Preview can run without D1; the inquiry API returns 503 until configured.
+const cloudflareD1DatabaseId = process.env.CLOUDFLARE_D1_DATABASE_ID?.trim();
 
 const { d1, r2 } = hostingConfig;
 
@@ -16,12 +17,12 @@ const managedLinux = readExecutionProfile() === "managed-linux";
 const localBindingConfig = {
   main: "vinext/server/fetch-handler",
   compatibility_flags: ["nodejs_compat"],
-  d1_databases: d1
+  d1_databases: d1 && cloudflareD1DatabaseId
     ? [
         {
           binding: d1,
           database_name: "site-creator-d1",
-          database_id: SITE_CREATOR_PLACEHOLDER_DATABASE_ID,
+          database_id: cloudflareD1DatabaseId,
         },
       ]
     : [],
