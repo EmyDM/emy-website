@@ -43,16 +43,32 @@ jobs:
         run: |
           test -n "$CLOUDFLARE_API_TOKEN" || { echo "Missing CLOUDFLARE_API_TOKEN"; exit 1; }
           test -n "$CLOUDFLARE_ACCOUNT_ID" || { echo "Missing CLOUDFLARE_ACCOUNT_ID"; exit 1; }
-          # Remove accidental leading/trailing whitespace without logging secrets.
-          CLOUDFLARE_API_TOKEN="$(printf '%s' "$CLOUDFLARE_API_TOKEN" | sed 's/^[[:space:]]*//; s/[[:space:]]*$//')"
-          CLOUDFLARE_ACCOUNT_ID="$(printf '%s' "$CLOUDFLARE_ACCOUNT_ID" | tr -d '\\r\\n' | xargs)"
-          export CLOUDFLARE_API_TOKEN CLOUDFLARE_ACCOUNT_ID
-          if [[ "$CLOUDFLARE_API_TOKEN" =~ [[:space:]] ]]; then
-            echo "::error::Cloudflare API token contains internal whitespace. Replace the GitHub secret with the raw token only (no Bearer prefix, quotes, or extra text)."
-            exit 1
-          fi
-          if [[ ! "$CLOUDFLARE_ACCOUNT_ID" =~ ^[a-fA-F0-9]{32}$ ]]; then
-            echo "::error::Cloudflare Account ID must be exactly 32 hexadecimal characters. Check the GitHub secret."
-            exit 1
-          fi
+          # Inspect only character classes; never print credentials or fragments.
+          node <<'NODE'
+          const fs = require('fs');
+          const token = process.env.CLOUDFLARE_API_TOKEN || '';
+          const id = process.env.CLOUDFLARE_ACCOUNT_ID || '';
+          const classes = {
+            space: (token.match(/ /g) || []).length,
+            tab: (token.match(/\t/g) || []).length,
+            cr: (token.match(/\r/g) || []).length,
+            lf: (token.match(/\n/g) || []).length,
+            otherControl: [...token].filter(c => /[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]/.test(c)).length,
+            nonAsciiWhitespace: [...token].filter(c => /\s/u.test(c) && !/[ \t\r\n]/.test(c)).length
+          };
+          for (const [name, count] of Object.entries(classes)) {
+            console.log('Token character class ' + name + ': ' + (count ? 'present' : 'absent'));
+          }
+          const cleaned = token.trim();
+          const innerWhitespace = /\s/u.test(cleaned);
+          if (innerWhitespace || /[\x00-\x1f\x7f]/.test(cleaned)) {
+            console.error('::error::Token contains whitespace/control characters after trimming; inspect GitHub secret. No token characters were logged.');
+            process.exit(1);
+          }
+          if (!/^[a-fA-F0-9]{32}$/.test(id.trim())) {
+            console.error('::error::Cloudflare Account ID is not 32 hexadecimal characters.');
+            process.exit(1);
+          }
+          fs.appendFileSync(process.env.GITHUB_ENV, 'CLOUDFLARE_API_TOKEN=' + cleaned + '\nCLOUDFLARE_ACCOUNT_ID=' + id.trim() + '\n', {mode: 0o600});
+          NODE
           pnpm exec wrangler deploy --config dist/server/wrangler.json --name emy-preview
