@@ -18,8 +18,8 @@ This repository is a recovered Vinext + Cloudflare Vite application, **not** a s
 
 ## Manual deployment plan
 
-1. In Cloudflare create a D1 database for inquiries and apply its schema, or temporarily disable the contact form route for preview. Do not deploy with a placeholder database ID.
-2. Update the Cloudflare binding configuration in `vite.config.ts` to use the real D1 database ID. Verify any other app bindings and secrets.
+1. Preview builds omit D1 when `CLOUDFLARE_D1_DATABASE_ID` is unset. The inquiry API returns 503 until a real database is bound. Create a D1 database and apply its schema later, before enabling contact submissions.
+2. When ready to enable contact submissions, set `CLOUDFLARE_D1_DATABASE_ID` to the real D1 database ID at build time and verify the generated binding. Never use the original placeholder ID.
 3. In GitHub, configure repository Actions secrets `CLOUDFLARE_API_TOKEN` (least-privilege Workers Scripts edit token) and `CLOUDFLARE_ACCOUNT_ID`. Never paste tokens in chat or commit them to the repository.
 4. Review the workflow `.github/workflows/deploy-worker.yml`, then manually trigger `Deploy EMY preview Worker` from the `launch-preparation` branch.
 5. Inspect the generated `dist/server/wrangler.json` and deployment logs; verify pages, RU/EN/KZ routing, CSS, navigation, and contact form.
