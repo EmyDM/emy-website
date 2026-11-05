@@ -10,7 +10,7 @@ const SITE_CREATOR_PLACEHOLDER_DATABASE_ID =
 // Use the real staging D1 ID supplied by Cloudflare Builds.
 // The placeholder remains for local Miniflare development only.
 const d1DatabaseId = process.env.EMY_D1_DATABASE_ID ||
-  SITE_CREATOR_PLACEHOLDER_DATABASE_ID;
+  "91565c05-7b43-4ce3-8cc0-6584511de587";
 
 const { d1, r2 } = hostingConfig;
 
