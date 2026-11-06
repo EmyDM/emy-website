@@ -26,7 +26,7 @@ const localBindingConfig = {
     ? [
         {
           binding: d1,
-          database_name: "site-creator-d1",
+          database_name: "emy-staging-db",
           database_id: d1DatabaseId,
         },
       ]
